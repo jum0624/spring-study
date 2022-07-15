@@ -8,7 +8,7 @@ import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository {
 
-    private static Map<Long, Member> store = new HashMap<>(); // 실무애서는 동시성 문제가 발생할 수 있음. because -> static
+    private static Map<Long, Member> store = new HashMap<>(); // 실무에서는 동시성 문제가 발생할 수 있음. because -> static
     private static long sequence = 0L;
 
     @Override
