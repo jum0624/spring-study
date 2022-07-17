@@ -14,6 +14,19 @@ import static org.assertj.core.api.Assertions.*;
 public class ConfigurationSingleTest {
 
     @Test
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+
+        // 출력결과
+//        bean = class hello.core.AppConfig$$EnhancerBySpringCGLIB$$4ab6406e -> CGLIB라는 라이브러리가 적용됨
+        // 순수한 클래스라면 class hello.core.AppConfig만 출력되어야함.
+    }
+
+    @Test
     void configurationTest() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 

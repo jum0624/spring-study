@@ -9,6 +9,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -33,6 +34,7 @@ public class AppConfig {  // 역할들이 드러나는 것이 중요!!
 //    call AppConfig.orderService
 // memberRepository가 세번 호출 되어야 하는데 한번만 호출됨 -> 스프링이 싱글톤을 보장해주고 있음을 볼 수 있음
 
+//    @Autowired MemberRepository MemberRepository;
 
     @Bean
     public MemberService memberService() {  // 멤버 서비스의 역할
