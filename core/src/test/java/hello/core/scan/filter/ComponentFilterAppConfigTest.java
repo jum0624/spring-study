@@ -21,7 +21,7 @@ public class ComponentFilterAppConfigTest {
 
 //        BeanB beanB = ac.getBean("beanB", BeanB.class);  // 컴포넌트 대상에서 예외되었으므로 테스트 실패
         org.junit.jupiter.api.Assertions.assertThrows(
-                NoSuchBeanDefinitionException.class,
+                NoSuchBeanDefinitionException.class,   // 빈이 존재하지 않음 예외처리
                 () -> ac.getBean("beanB", BeanB.class)
         );
     }
