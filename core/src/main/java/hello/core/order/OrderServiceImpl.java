@@ -13,11 +13,9 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy; // 인터페이스만 의존하도록 설계 -> DIP ** BUT, 지금은 NULL로 인한 오류가 생김. 어떻게 해결할까?
 
     @Autowired
-    private DiscountPolicy rateDiscountPolicy;
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
-        this.discountPolicy = rateDiscountPolicy;
+        this.discountPolicy = discountPolicy;
     }
 
     @Override
