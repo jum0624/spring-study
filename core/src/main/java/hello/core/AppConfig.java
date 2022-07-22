@@ -39,11 +39,11 @@ public class AppConfig {  // 역할들이 드러나는 것이 중요!!
     @Bean
     public MemberService memberService() {  // 멤버 서비스의 역할
         System.out.println("call AppConfig.memberService");
-        return new MemberServiceImpl(MemberRepository());  // 생성자 주입
+        return new MemberServiceImpl(memberRepository());  // 생성자 주입
     }
 
     @Bean
-    public MemberRepository MemberRepository() {  // 멤버 레포지토리의 역할
+    public MemberRepository memberRepository() {  // 멤버 레포지토리의 역할
         System.out.println("call AppConfig.MemberRepository");
         return new MemoryMemberRepository();
     }
@@ -51,7 +51,7 @@ public class AppConfig {  // 역할들이 드러나는 것이 중요!!
     @Bean
     public OrderService orderService(){  // 주문 서비스의 역할
         System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(MemberRepository(), discountPolicy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
