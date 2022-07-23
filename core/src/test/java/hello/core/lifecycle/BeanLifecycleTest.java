@@ -16,7 +16,7 @@ public class BeanLifecycleTest {
     @Configuration
     static class LifeCycleConfig {
 
-        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close")  //destroyMethod는 기본값이 inferred로 close, shutdown을 자동으로 호출
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
