@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -13,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy; // 인터페이스만 의존하도록 설계 -> DIP ** BUT, 지금은 NULL로 인한 오류가 생김. 어떻게 해결할까?
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
